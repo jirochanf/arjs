@@ -1,0 +1,60 @@
+<!--youtube　のえる研　　を参考に　画像・動画を表示  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body>
+    <a-scene embedded arjs="patternRatio:0.70" vr-mode-ui="enabled: false">
+      <a-assets>
+        <video
+          id="video"
+          src="https://cdn.glitch.global/a575940f-5bb4-4d84-b1ec-39de683638f7/2024meishi2.mp4?v=1727092436817"
+        ></video>
+        <image
+          id="thumbnail"
+          src="https://cdn.glitch.global/cbf17ad1-1348-4ae7-b9c3-7207634324f5/2024_ura_start.png?v=1703110115155"
+        ></image>
+      </a-assets>
+
+      <!--   <a-marker preset="hiro">  -->
+      <a-marker
+        type="pattern"
+        url="https://cdn.glitch.global/a575940f-5bb4-4d84-b1ec-39de683638f7/pattern-QR_video.patt?v=1727092808284"
+      >
+        <a-video
+          id="arVideo"
+          src="#video"
+          width="3.2"
+          height="1.8"
+          position="0 0 0"
+          rotation="-90 0 0"
+          scale="2.5 2.5 2.5"
+          visible="false"
+        ></a-video>
+        <a-image
+          id="thumbnailImg"
+          src="#thumbnail"
+          width="3.2"
+          height="1.8"
+          position="0 0 0"
+          rotation="-90 0 0"
+          scale="2.5 2.5 2.5"
+          visible="true"
+        ></a-image>
+      </a-marker>
+      <a-entity camera cursor="fuse: false; rayOrigin: mouse;"></a-entity>
+    </a-scene>
+    <script>
+      window.addEventListener("click", () => {
+        const video = document.getElementById("video");
+        const arVideo = document.getElementById("arVideo");
+        const thumbnailImg = document.getElementById("thumbnailImg");
+        thumbnailImg.setAttribute("visible", false);
+        arVideo.setAttribute("visible", true);
+        video.play();
+      });
+    </script>
+  </body>
+</html>
