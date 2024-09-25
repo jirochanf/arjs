@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>ModerlViewerを使った3Dモデル表示</title>
+  </head>
+  <body>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
+    ></script>
+    <model-viewer
+      ar
+      alt="3d モデル"
+      src="https://cdn.glitch.global/a575940f-5bb4-4d84-b1ec-39de683638f7/touju.gltf?v=1727257487802"
+      ios-src="https://cdn.glitch.global/a575940f-5bb4-4d84-b1ec-39de683638f7/touju.usdz?v=1727257230316"
+      style="width: 400px; height: 500px"
+      background-color="#70BCD1"
+      shadow-intensity="0.7"
+      camera-controls
+      interaction-prompt="auto"
+      auto-rotate
+      magic-leap
+    >
+    </model-viewer>
+  </body>
+</html>
